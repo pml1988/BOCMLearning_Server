@@ -7,6 +7,6 @@
  * Email: wxjajax@gmail.com
 */
 
-class Pool extends Eloquent {
+class Pool extends Eloquent{
 
 } 

@@ -52,6 +52,18 @@
         </li>
         @endif
 
+        <li {{URI::is('exam/*') ? 'class="current"' : ''}} >
+        <a href="#"><span class="awe-book"></span>在线练习管理</a>
+        <ul>
+            <li>
+                <a {{URI::is('exam/subject*') ? 'class="current"' : ''}} href="{{URL::to('exam/subject_list')}}">科目管理</a>
+            </li>
+            <li>
+                <a {{URI::is('exam/imitate*') ? 'class="current"' : ''}} href="{{URL::to('exam/imitate_list')}}">模拟练习管理</a>
+            </li>
+        </ul>
+        </li>
+
         <li {{URI::is('statistic/*') ? 'class="current"' : ''}} >
             <a href="#"><span class="awe-signal"></span>统计分析</a>
             <ul>

@@ -181,6 +181,8 @@ Route::group(array('before' => 'role'), function()
     Route::controller('learn');
     //上传控制器
     Route::controller('upload');
+    //在线练习控制器
+    Route::controller('exam');
 });
 
 //Ajax调用

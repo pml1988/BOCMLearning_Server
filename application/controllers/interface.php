@@ -1528,6 +1528,15 @@ class Interface_Controller extends Base_Controller {
         return static::response_data();
     }
 
+    //获取科目列表接口
+    public function get_subject_list()
+    {
+        $subject = new Subject();
+        $list = $subject->select(array('id', 'title'))->get();
+        return static::response_data($list, 200, 'eloquent');
+
+    }
+
     //私有参数验证
     private static function validation($rules)
     {

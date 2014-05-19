@@ -17,9 +17,9 @@ class Exam_Controller extends Base_Controller {
         $page = \Laravel\Input::get('page', 1);
         $per_page = 20;
 
-        $pool = new Pool();
-        $total = $pool->count();
-        $list = $pool
+        $Subject = new Subject();
+        $total = $Subject->count();
+        $list = $Subject
                 ->order_by('created_at', 'desc')
                 ->take($per_page)
                 ->skip(($page-1)*$per_page)
@@ -53,7 +53,7 @@ class Exam_Controller extends Base_Controller {
         }
 
         $data['title'] = \Laravel\Input::get('title');
-        $pool = new Pool;
+        $pool = new Subject;
         $pool->title =  $data['title'];
         $pool->save();
 
@@ -67,8 +67,8 @@ class Exam_Controller extends Base_Controller {
     {
         $view = View::make('exam.subject_edit');
 
-        $pool = Pool::find(\Laravel\Input::get('id'));
-        $view->pool = $pool;
+        $Subject = Subject::find(\Laravel\Input::get('id'));
+        $view->pool = $Subject;
         $view->web_title = '科目编辑';
         return $view;
     }
@@ -88,7 +88,7 @@ class Exam_Controller extends Base_Controller {
         }
 
         $data['title'] = \Laravel\Input::get('title');
-        $pool = Pool::find(\Laravel\Input::get('id'));
+        $pool = Subject::find(\Laravel\Input::get('id'));
         $pool->title =  $data['title'];
         $pool->save();
 
@@ -100,6 +100,9 @@ class Exam_Controller extends Base_Controller {
 
     public function get_subject_import()
     {
+        $view = View::make('exam.subject_import');
 
+        $view->web_title = '导入题库';
+        return $view;
     }
 } 
